@@ -46,20 +46,20 @@ def get_correlation(data: pd.DataFrame, columns: list[str] = None) -> pd.Series:
     
     corr = data.corr()
 
-    # replace 1-1 correaltion with nan
+    # replace 1-1 correlation's with nan
     np.fill_diagonal(corr.values, np.nan)
     
     # make it long format and delete nan values, make it from top to bottom
     correlation = corr.unstack().dropna().sort_values(ascending=False)
     
-    # delete all population related columns since they are too obvious 
+    # delete all population related columns since the relations are not nuanced.
     correlation = correlation[~correlation.index.get_level_values(0).str.contains("Population", case=False) &
                          ~correlation.index.get_level_values(1).str.contains("Population", case=False)]
     
     return correlation
 
 def plot_scatter(data, columns: list[str]):
-    # to use it for labeling
+    # Computing the Scatter plot. And using it for labeling
     labels = list(data.index)
 
     for i in range(len(data)):
