@@ -11,7 +11,7 @@ Approach:
 
 3) Post clean up we computed the Correlation matrix across all variables and studied the outcomes.
 
-Outcome :
+Outcome:
 
 1) We observed that GNI per capita, Atlas method (current US$) and Age dependency ratio, old (% of working-age population) are well correlated with each other. This implies that high employment of working age population is strongly related to increased GNI per capita.
 
@@ -19,7 +19,7 @@ Outcome :
 
 3)  The Commented python codes & output images are posted on Github for review.
 
-Limitations :
+Limitations:
 
 1) The study is fairly limited in design and further relations can be explored for more nuanced findings, which was left out of scope for this assignment.
 2) Furthermore, there could be sampling and data collection issues in the data collected across geographies, which could further impact the result and the actual inference from the correlation.
