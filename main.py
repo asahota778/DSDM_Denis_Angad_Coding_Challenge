@@ -21,7 +21,7 @@ def filter_data(data: pd.DataFrame) -> pd.DataFrame:
     data = data[pd.notna(data["Country Code"])]
 
     # deleting country code column and setting country name as an index to ger rid off non numerical values
-    data = data.set_index("Country Name").drop(columns=["Country Code"]) 
+    data = data.set_index("Country Code").drop(columns=["Country Name"]) 
     
     # replacing typical ".." with nan values
     data = data.replace("..", pd.NA)
@@ -71,8 +71,9 @@ def plot_scatter(data, columns: list[str]):
             continue
 
         plt.scatter(x, y, color='blue') 
-    
-        plt.text(x, y, label, fontsize=5, ha='right')
+
+        if x > 40000 or y > 20:
+            plt.text(x, y, label, fontsize=5, ha='right')
 
     plt.xlabel(columns[0])
     plt.ylabel(columns[1])
